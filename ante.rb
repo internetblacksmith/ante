@@ -114,7 +114,7 @@ class Ante
   def remaining(card)
     operands = [ card ]
     while card = @code[@pc]
-      break if card.rank.nil? || card.rank == 10 || card.rank =~ /[KQJ]/
+      break if card.rank.nil? || card.rank == 10 || %w[K Q J].include?(card.rank)
       operands += [ card ]
       @pc += 1
     end
